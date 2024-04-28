@@ -24,7 +24,7 @@ const handleChange=()=>{
               <div className="flex space-x-4">
         <div className="flex rounded-md overflow-hidden w-full">
           <input 
-          type="search" placeholder=" Search a Product..." className="sm:hidden h-10 w-80 rounded-md rounded-r-none" /> 
+          type="search" placeholder=" Search a Product..." className="sm:hidden h-10 w-80 rounded-md rounded-r-none hover:border-black cursor-pointer" /> 
           <FaSearch className="sm:hidden hover:bg-green-600 text-3xl text-black h-10 bg-green-500 font-semibold rounded-r-md py-3"/>     
              </div>
       </div>
@@ -34,21 +34,17 @@ const handleChange=()=>{
 
             <button onClick={handleChange} className=" bg-green-500 hover:bg-green-400 text-white font-bold px-2 py-4rounded inline-flex">
             <TiShoppingCart className="text-4xl text-black "/>
-              <options className=" text-red-700">10</options>
+              <options className=" text-red-700 inline-flex">10</options>
             <MdArrowDropDown className="text-xl text-black"/>
-            {toggle && (
-      <div className="flex-col flex items-center fixed inset-0 left-1/4 bg-white dark:bg-black gap-8  p-10  text-black dark:text-white font-normal uppercase text-sm">
-        <h1 className="text-2xl font-bold">Cart</h1>
-        <div className="absolute right-16 top-10">
-          <button
-            className="px-4 py-2 bg-gray-800 text-white text-xs font-bold uppercase rounded hover:bg-gray-700 focus:outline-none focus:bg-gray-700"
-            onClick={handleChange}
-          >
-            Close
-          </button>
-      </div>
-      </div>
-          )}
+            {
+            toggle && (
+              <div className="card_details flex justify-center items-center" style={{ width: "24rem", padding: 10, position: "relative" }}>
+              <i className="fas fa-close smallclose" onClick={handleChange} style={{ position: "absolute", top: 2, right: 20, fontSize: 23, cursor: "pointer" }}></i>
+              <p className="text-lg">Your cart is empty</p>
+              
+          </div>
+              )
+            }
         </button>
              </div>
      </div>
