@@ -15,7 +15,7 @@ return {...state,cartItems:newCartItems }
 
   };
   
-  const removeItem = (state, item) => {
+const removeItem = (state, item) => {
     const newCartItems = [...state.cartItems];
     const itemIndex = newCartItems.findIndex(
       (cartItem) => cartItem.product.id === item.product.id
@@ -30,7 +30,7 @@ return {...state,cartItems:newCartItems }
     return { ...state, cartItems: newCartItems };
   };
   
-  const incrementQuantity = (state, item) => {
+const incrementQuantity = (state, item) => {
     const newCartItems = [...state.cartItems];
     const itemIndex = newCartItems.findIndex(
       (cartItem) => cartItem.product.id === item.product.id
@@ -41,7 +41,6 @@ return {...state,cartItems:newCartItems }
       return { ...state };
     }
   
-    // ugly, because we didn't deeply clone the newCartItems array
     const newItem = { ...newCartItems[itemIndex] };
     newItem.quantity++;
     newCartItems[itemIndex] = newItem;
@@ -49,7 +48,7 @@ return {...state,cartItems:newCartItems }
     return { ...state, cartItems: newCartItems };
   };
   
-  const decrementQuantity = (state, item) => {
+const decrementQuantity = (state, item) => {
     const newCartItems = [...state.cartItems];
     const itemIndex = newCartItems.findIndex(
       (cartItem) => cartItem.product.id === item.product.id
@@ -72,7 +71,7 @@ return {...state,cartItems:newCartItems }
     return { ...state, cartItems: newCartItems };
   };
   
-  const cartReducer = (state, action) => {
+  export const cartReducer = (state, action) => {
     switch (action.type) {
       case "ADD_ITEM":
         return addItem(state, action.payload);
