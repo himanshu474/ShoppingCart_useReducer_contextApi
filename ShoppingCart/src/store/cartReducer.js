@@ -1,3 +1,10 @@
+export const CART_ACTIONS = {
+  ADD_ITEM: "ADD_ITEM",
+  REMOVE_ITEM: "REMOVE_ITEM",
+  INCREMENT_QUANTITY: "INCREMENT_QUANTITY",
+  DECREMENT_QUANTITY: "DECREMENT_QUANTITY",
+};
+
 const addItem = (state, item) =>
  {
   const newCartItems=[...state.cartItems]

@@ -9,15 +9,19 @@ const initialState={
 export const CartContext=createContext(initialState);
 export const CartDispatchContext=createContext(null);
 
-export const CartProvider=(children,cartValue=initialState)=>{
+export const CartProvider=({children,cartValue=initialState})=>{
 const [state,dispatch]=useReducer(cartReducer,cartValue)
+
+
 return(
+    
+    
     <CartContext.Provider value={state}>
         <CartDispatchContext.Provider value={dispatch}>
             {children}
         </CartDispatchContext.Provider>
     </CartContext.Provider>
-)
+    )
 }
 
 export function useCart(){
