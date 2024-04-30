@@ -5,6 +5,8 @@ import productMock from '../mock/productMock'
 import{useCart,useCartDispatch} from '../store/cartContext'
 import { CART_ACTIONS } from '../store/cartReducer'
 import { useEffect,useState } from 'react'
+import { IoAddOutline } from "react-icons/io5";
+
 
 const ProductsList = () => {
 const[products,setProducts]=useState([])
@@ -54,7 +56,7 @@ dispatch && dispatch({
                     focus:ring-0 focus-visible:outline-4 
                     ' 
                     onClick={()=> handleAddToCart(product)}>
-                        +
+                    <IoAddOutline/>
                     </button>
                 )}
             </li>  

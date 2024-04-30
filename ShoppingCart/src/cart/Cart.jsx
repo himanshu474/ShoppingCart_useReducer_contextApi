@@ -63,7 +63,7 @@ export const Cart = () => {
                     height="200"
                   />
                   <h4>
-                    <Link to="#">{cartItem.product.name}</Link>
+                    <Link to="/">{cartItem.product.name}</Link>
                   </h4>
                 </td>
                 <td className="text-right">
@@ -91,7 +91,7 @@ export const Cart = () => {
                     className="mr-[15px] px-0 py-[5px] border-[none]"
                   >
                     <AiFillDelete/>
-                    {/* <img src={TrashIcon} alt="Remove" className="icon" /> */}
+                   
                   </button>
                 </td>
                 <td className="text-right p-6">
