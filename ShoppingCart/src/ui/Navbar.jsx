@@ -13,7 +13,7 @@ const{cartItems} =useCart();
           <Link to='/' >Products</Link>
         </li>
         <li className="m-[0 0 0 20px]">
-          <Link to='/' className=" relative">
+          <Link to='/cart' className=" relative">
             {cartItems.length >0 && (
               <span className="absolute top-[-10px] right-[-10px]
                w-5 h-5 bg-sky-300 rounded-[50%]  ">{cartItems.length}</span>
