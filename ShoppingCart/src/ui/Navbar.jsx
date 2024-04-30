@@ -7,7 +7,7 @@ const Navbar = () => {
 const{cartItems} =useCart();
 
   return (
-    <nav className="flex p-5 bg-[#fff] shadow-[0 0 1em #00000022]">
+    <nav className="flex p-5 justify-evenly bg-[#fff] shadow-[0 0 1em #00000022]">
       <ul className="flex flex-row list-none m-[0 0 0 auto] p-0">
         <li className="m-[0 0 0 20px]">
           <Link to='/' >Products</Link>
