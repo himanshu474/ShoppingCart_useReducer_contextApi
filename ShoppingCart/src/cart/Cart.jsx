@@ -14,7 +14,7 @@ export const Cart = () => {
     const dispatch = useCartDispatch();
   
     const handleIncrementQuantity = (cartItem) => {
-      dispatch &&
+
         dispatch({
           type: CART_ACTIONS.INCREMENT_QUANTITY,
           payload: { ...cartItem },
@@ -22,7 +22,6 @@ export const Cart = () => {
     };
   
     const handleDecrementQuantity = (cartItem) => {
-      dispatch &&
         dispatch({
           type: CART_ACTIONS.DECREMENT_QUANTITY,
           payload: { ...cartItem },
@@ -30,7 +29,6 @@ export const Cart = () => {
     };
   
     const handleRemoveItem = (cartItem) => {
-      dispatch &&
         dispatch({
           type: CART_ACTIONS.REMOVE_ITEM,
           payload: {
