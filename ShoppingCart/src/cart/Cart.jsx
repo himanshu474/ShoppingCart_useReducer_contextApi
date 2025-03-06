@@ -39,74 +39,73 @@ export const Cart = () => {
     };
   
     return (
-      <>
-        <h1>Cart</h1>
-        <table className=" w-[100%] border-collapse text-right">
+       <div className="container mx-auto px-4 py-8">
+      <h1 className="text-3xl font-semibold text-center mb-6">Shopping Cart</h1>
+      <div className="overflow-x-auto bg-white shadow-lg rounded-lg p-4">
+        <table className="min-w-full table-auto">
           <thead>
             <tr>
-              <th className=" text-left p-4 border border-solid border-[#fff]">Product</th>
-              <th className=" text-right p-4  border border-solid border-[#fff] ">Quantity</th>
-              <th className="text-right p-4  border border-solid border-[#fff]">Price</th>
+              <th className="text-left p-4 border-b text-sm font-medium">Product</th>
+              <th className="text-right p-4 border-b text-sm font-medium">Quantity</th>
+              <th className="text-right p-4 border-b text-sm font-medium">Price</th>
             </tr>
           </thead>
           <tbody>
             {cartItems.map((cartItem) => (
-              <tr key={cartItem.product.id} className=" px-0 py-1 border-none mr-4">
-                <td className="flex items-center p-4">
+              <tr key={cartItem.product.id} className="border-b">
+                <td className="flex items-center p-4 space-x-4">
                   <img
                     src={cartItem.product.imageUrl}
                     alt={cartItem.product.name}
-                    className=" w-20 h-auto mr-2"
-                    width="200"
-                    height="200"
+                    className="w-20 h-auto object-cover rounded-md"
                   />
-                  <h4>
-                    <Link to="/">{cartItem.product.name}</Link>
-                  </h4>
+                  <Link to="/" className="text-lg font-semibold text-blue-600 hover:underline">
+                    {cartItem.product.name}
+                  </Link>
                 </td>
-                <td className="text-right">
-                  <div className="flex items-center float-right">
+
+                <td className="text-right p-4">
+                  <div className="flex items-center justify-end space-x-2">
                     <button
-                      className="rounded-t-lg rounded-b-lg rounded-none"
+                      className="p-2 rounded-full bg-gray-200 hover:bg-gray-300 transition"
                       onClick={() => handleDecrementQuantity(cartItem)}
                     >
                       <RiSubtractLine />
                     </button>
-                    <span className="text-base text-center leading-[initial] m-0 px-5 py-2.5
-                     border-y-[#242424] border-t border-solid border-b">
+                    <span className="text-base font-medium px-5 py-2.5 border border-solid border-gray-300 rounded-md">
                       {cartItem.quantity}
                     </span>
                     <button
-                      className="rounded-r-lg rounded-b-lg rounded-none"
+                      className="p-2 rounded-full bg-gray-200 hover:bg-gray-300 transition"
                       onClick={() => handleIncrementQuantity(cartItem)}
                     >
                       <IoAddOutline />
-
                     </button>
                   </div>
                   <button
                     onClick={() => handleRemoveItem(cartItem)}
-                    className="mr-[15px] px-0 py-[5px] border-[none]"
+                    className="text-red-500 hover:text-red-700 mt-2"
                   >
-                    <AiFillDelete/>
-                   
+                    <AiFillDelete className="w-5 h-5" />
                   </button>
                 </td>
-                <td className="text-right p-6">
+
+                <td className="text-right p-4 font-medium">
                   {formatCurrency(cartItem.product.price * cartItem.quantity)}
                 </td>
               </tr>
             ))}
             <tr>
-              <td colSpan={3} className="text-right text-2xl">
-                Total: &nbsp;
-                <span className=" font-bold p-6">
+              <td colSpan={3} className="text-right text-2xl p-6 font-semibold">
+                Total:{" "}
+                <span className="font-bold text-xl">
                   {formatCurrency(getTotalPrice(cartItems))}
                 </span>
               </td>
             </tr>
           </tbody>
         </table>
-      </>
+      </div>
+    </div>
     );
   };
