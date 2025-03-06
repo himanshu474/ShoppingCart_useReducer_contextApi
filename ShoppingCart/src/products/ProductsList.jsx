@@ -33,35 +33,55 @@ dispatch && dispatch({
 
 
   return (
-    <ul className=' flex flex-row flex-wrap justify-center p-5'>
-        {products.map((product)=>(
-            <li key={product.id} className='flex flex-col w-[300px] 
-            mt-0 ml-0 mr-5 mb-5 p-5 bg-[#fff] shadow-[0 0 16px #eee]'>
-                <img
-                src={product.imageUrl}
-                alt={product.name}
-                width="300"
-                height="300"
-                />
-                <h3>{product.name}</h3>
-                <p>{product.description}</p>
-                <p>{formatCurrency(product.price)}</p>
-                {isInCart(cartItems,product)?(
-                    <Link to='/cart'>Added to Cart</Link>
-                ):(
-                    <button className='border-lg py-2.5 px-5 font-medium 
-                    text-base font-sans cursor-pointer bg-[#fff] 
-                    border border-solid border-[#242424]
-                    hover:bg-blue-400 focus:outline-4 focus:auto 
-                    focus:ring-0 focus-visible:outline-4 
-                    ' 
-                    onClick={()=> handleAddToCart(product)}>
-                    <IoAddOutline/>
-                    </button>
-                )}
-            </li>  
-        ))}
-    </ul>
+      <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 2xl:grid-cols-4 gap-6 p-5"> 
+
+{products.map((product) => (
+    <li
+      key={product.id}
+      className="flex flex-col bg-white rounded-lg overflow-hidden transform transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:border-blue-400 border-2 border-gray-200"
+    >
+      {/* Image Section with Gradient Overlay */}
+      <div className="relative">
+        <img
+          src={product.imageUrl}
+          alt={product.name}
+          className="w-full h-64 object-cover rounded-t-lg"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-30 rounded-t-lg"></div>
+      </div>
+
+      {/* Card Content Section */}
+      <div className="p-4 flex flex-col justify-between flex-grow">
+        <h3 className="text-xl font-semibold text-gray-800 hover:text-blue-500 transition duration-200">{product.name}</h3>
+        <p className="text-sm text-gray-600 mt-2 line-clamp-3">{product.description}</p>
+        <p className="text-lg font-bold text-gray-900 mt-2">{formatCurrency(product.price)}</p>
+
+        {/* Conditional Cart Button or Link */}
+        {isInCart(cartItems, product) ? (
+          <Link
+            to="/cart"
+            className="mt-3 text-center text-sm text-blue-600 hover:underline"
+          >
+            Added to Cart
+          </Link>
+        ) : (
+          <button
+            className="mt-3 py-2 px-4 bg-blue-600 text-white font-semibold rounded-md hover:bg-blue-500 transition duration-300"
+            onClick={() => handleAddToCart(product)}
+          >
+            <IoAddOutline className="inline-block mr-2" />
+            Add to Cart
+          </button>
+        )}
+      </div>
+    </li>
+  ))}
+</ul>
+
+  
+  
+  
+  
   )
 }
 
